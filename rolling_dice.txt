@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <sched.h>
+#include <queue>
+using namespace std;
+
+int main() {
+
+priority_queue<int> q1;
+
+// int n;
+int result;
+
+srand(time(NULL));
+
+// cout << "Enter number of dice to roll: ";
+// cin >> n;
+
+for (int i = 0; i < 10; i++) 
+{
+  result = rand() % 6 + 1;
+  cout << "\nDice rolled: " << result;
+  q1.push(result);
+  // cout << result << "-";
+}
+
+cout << "\n---------------";
+
+for(int i = 0; i < 5; i++)
+{
+  if(!q1.empty())
+  {
+    int removed = q1.top();
+    q1.pop();
+    cout << "\nRemoved Item:" << removed;
+  }
+
+  else
+  {
+    cout << "Priority Queue is empty.";
+  }
+
+}
+
+return 0;
+}
